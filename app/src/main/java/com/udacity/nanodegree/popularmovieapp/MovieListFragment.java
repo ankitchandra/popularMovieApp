@@ -1,5 +1,6 @@
 package com.udacity.nanodegree.popularmovieapp;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.udacity.nanodegree.popularmovieapp.activity.MovieDetailActivity;
 import com.udacity.nanodegree.popularmovieapp.model.Movie;
 import com.udacity.nanodegree.popularmovieapp.util.JSONUtil;
 
@@ -67,6 +69,9 @@ public class MovieListFragment extends Fragment {
                 if (movie == null) {
                     return;
                 }
+                Intent intent = new Intent(getActivity(), MovieDetailActivity.class);
+                intent.putExtra(Movie.EXTRA_INTENT_ARGUMENT, movie.toBundle());
+                getActivity().startActivity(intent);
             }
         });
         gridView.setOnScrollListener(
