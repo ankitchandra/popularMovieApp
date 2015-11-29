@@ -136,11 +136,12 @@ public class MovieListFragment extends Fragment {
                             getString(R.string.pref_sorting_key),
                             getString(R.string.pref_default_value)
                     );
+            final String API_KEY_VALUE = getString(R.string.api_key);
 
             try {
                 Uri uri = Uri.parse(BASE_URL).buildUpon()
                         .appendPath(API_SORTING)
-                        .appendQueryParameter(API_KEY, "c1775b0d2ca5118036782ba966238a6a")
+                        .appendQueryParameter(API_KEY, API_KEY_VALUE)
                         .appendQueryParameter(PARAM_PAGE, String.valueOf(page))
                         .build();
                 Log.i(LOG_TAG, "Uri built " + uri.toString());
