@@ -3,6 +3,7 @@ package com.udacity.nanodegree.popularmovieapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -116,7 +117,7 @@ public class MovieListFragment extends Fragment {
 
     private class FetchMoviesTask extends AsyncTask<Integer, Void, Collection<Movie>> {
         public final String LOG_TAG = FetchMoviesTask.class.getSimpleName();
-        private final String BASE_URL = "http://api.themoviedb.org/3/discover/movie";
+        private final String BASE_URL = "http://api.themoviedb.org/3/movie";
         private final String PARAM_PAGE = "page";
         private final String API_KEY = "api_key";
 
@@ -129,8 +130,16 @@ public class MovieListFragment extends Fragment {
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
             Collection<Movie> movies = new ArrayList<Movie>();
+            final String API_SORTING = PreferenceManager
+                    .getDefaultSharedPreferences(getActivity())
+                    .getString(
+                            getString(R.string.pref_sorting_key),
+                            getString(R.string.pref_default_value)
+                    );
+
             try {
                 Uri uri = Uri.parse(BASE_URL).buildUpon()
+                        .appendPath(API_SORTING)
                         .appendQueryParameter(API_KEY, "c1775b0d2ca5118036782ba966238a6a")
                         .appendQueryParameter(PARAM_PAGE, String.valueOf(page))
                         .build();

@@ -26,6 +26,8 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MovieListActivity"/>
         </activity>
+        <activity android:name=".activity.SettingsActivity"
+            android:parentActivityName=".activity.MovieListActivity"/>
     </application>
 
 </manifest>

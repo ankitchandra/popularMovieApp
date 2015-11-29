@@ -1,22 +1,29 @@
 package com.udacity.nanodegree.popularmovieapp.activity;
 
-import android.content.Intent;
+import android.app.ActionBar;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.udacity.nanodegree.popularmovieapp.R;
 
-public class MovieListActivity extends AppCompatActivity {
+import java.util.Map;
+
+/**
+ * Created by acchandr on 11/29/15.
+ */
+public class SettingsActivity extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_settings);
     }
 
     @Override
@@ -35,10 +42,10 @@ public class MovieListActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            startActivity(new Intent(this,SettingsActivity.class));
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }
