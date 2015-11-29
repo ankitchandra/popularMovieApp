@@ -33,7 +33,7 @@ public class SettingsFragment extends PreferenceFragment
         }
     }
 
-    private void triggerSharePreferencesChange() {
+    private void startSharePreferencesChange() {
         SharedPreferences pref = getPreferenceScreen().getSharedPreferences();
         Map<String, ?> keys = pref.getAll();
 
@@ -50,7 +50,7 @@ public class SettingsFragment extends PreferenceFragment
     public void onResume() {
         super.onResume();
         getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-        triggerSharePreferencesChange();
+        startSharePreferencesChange();
 
     }
 

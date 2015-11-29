@@ -13,8 +13,6 @@ import android.view.MenuItem;
 
 import com.udacity.nanodegree.popularmovieapp.R;
 
-import java.util.Map;
-
 /**
  * Created by acchandr on 11/29/15.
  */
